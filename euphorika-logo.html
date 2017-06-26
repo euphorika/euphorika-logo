@@ -1,0 +1,36 @@
+<link rel="import" href="../polymer/polymer-element.html">
+
+<dom-module id="euphorika-logo">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <h2>Hello [[prop1]]!</h2>
+  </template>
+
+  <script>
+    /**
+     * `euphorika-logo`
+     * Animated SVG Logo euphorika communications UG
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class EuphorikaLogo extends Polymer.Element {
+      static get is() { return 'euphorika-logo'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'euphorika-logo'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(EuphorikaLogo.is, EuphorikaLogo);
+  </script>
+</dom-module>
