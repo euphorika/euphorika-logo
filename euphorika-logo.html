@@ -7,7 +7,9 @@
         display: block;
       }
     </style>
-    <h2>Hello [[prop1]]!</h2>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+      <path d="M-.1 0v512H512V0H-.1zm115.2 232.5h234.8v47H115.1v-47zm281.8 140.9H162.1v-47h234.8v47zm0-187.9H162.1v-47h234.8v47z"/>
+    </svg>
   </template>
 
   <script>
@@ -23,9 +25,22 @@
       static get is() { return 'euphorika-logo'; }
       static get properties() {
         return {
-          prop1: {
+          width: {
+            type: Number
+          },
+
+          height: {
+            type: Number
+          },
+
+          alt: {
             type: String,
-            value: 'euphorika-logo'
+            value: ''
+          },
+
+          title: {
+            type: String,
+            value: ''
           }
         };
       }
