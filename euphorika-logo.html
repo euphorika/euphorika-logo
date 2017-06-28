@@ -6,9 +6,15 @@
       :host {
         display: block;
       }
+
+      .logo {
+        fill: #ef2d56;
+      }
     </style>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-      <path d="M-.1 0v512H512V0H-.1zm115.2 232.5h234.8v47H115.1v-47zm281.8 140.9H162.1v-47h234.8v47zm0-187.9H162.1v-47h234.8v47z"/>
+
+    <svg id="euphorikaLogo" width$="[[width]]" height$="[[height]]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+      <title>[[title]]</title>
+      <path class="logo" d="M-.1 0v512H512V0H-.1zm115.2 232.5h234.8v47H115.1v-47zm281.8 140.9H162.1v-47h234.8v47zm0-187.9H162.1v-47h234.8v47z"/>
     </svg>
   </template>
 
@@ -23,27 +29,27 @@
      */
     class EuphorikaLogo extends Polymer.Element {
       static get is() { return 'euphorika-logo'; }
+
       static get properties() {
         return {
           width: {
-            type: Number
+            type: String
           },
 
           height: {
-            type: Number
-          },
-
-          alt: {
-            type: String,
-            value: ''
+            type: String
           },
 
           title: {
-            type: String,
-            value: ''
+            type: String
           }
         };
       }
+
+      constructor() {
+        super();
+      }
+
     }
 
     window.customElements.define(EuphorikaLogo.is, EuphorikaLogo);
