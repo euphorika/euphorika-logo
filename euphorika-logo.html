@@ -1,4 +1,5 @@
 <link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="tweenlite.html">
 
 <dom-module id="euphorika-logo">
   <template>
@@ -7,14 +8,20 @@
         display: block;
       }
 
-      .logo {
-        fill: #ef2d56;
+      svg {
+        background: #ef2d56;
+      }
+
+      .rect {
+        fill: #fff;
+        stroke-width: 0;
       }
     </style>
 
-    <svg id="euphorikaLogo" width$="[[width]]" height$="[[height]]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-      <title>[[title]]</title>
-      <path class="logo" d="M-.1 0v512H512V0H-.1zm115.2 232.5h234.8v47H115.1v-47zm281.8 140.9H162.1v-47h234.8v47zm0-187.9H162.1v-47h234.8v47z"/>
+    <svg id="euphorikaLogo" width$="[[width]]" height$="[[height]]"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+    	<rect class="rect rect-top" x="31" y="26" width="46" height="10" />
+    	<rect class="rect rect-middle" x="23" y="45" width="46" height="10" />
+    	<rect class="rect rect-bottom" x="31" y="64" width="46" height="10" />
     </svg>
   </template>
 
