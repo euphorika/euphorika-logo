@@ -15,6 +15,19 @@
       .rect {
         fill: #fff;
         stroke-width: 0;
+        transition: transform 0.1s ease-in-out
+      }
+
+      svg:hover .rect-top,
+      svg:hover .rect-bottom,
+      svg[animated] .rect-top,
+      svg[animated] .rect-bottom {
+        transform: translateX(-4px);
+      }
+
+      svg:hover .rect-middle,
+      svg[animated] .rect-middle {
+        transform: translateX(4px);
       }
     </style>
 
@@ -55,6 +68,14 @@
 
       constructor() {
         super();
+      }
+
+      init() {
+        // remove attribute "animated"
+      }
+
+      animate() {
+        // add attribute "animated"
       }
 
     }
