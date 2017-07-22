@@ -2,6 +2,22 @@
 
 Animated SVG Logo euphorika communications UG
 
+## Demo
+
+<!--
+```
+<custom-element-demo>
+  <template>
+    <link rel="import" href="euphorika-logo.html">
+    <next-code-block></next-code-block>
+  </template>
+</custom-element-demo>
+```
+-->
+```html
+<euphorika-logo></euphorika-logo>
+```
+
 ## Install the Polymer-CLI
 
 First, make sure you have the [Polymer CLI](https://www.npmjs.com/package/polymer-cli) installed. Then run `polymer serve` to serve your element locally.
