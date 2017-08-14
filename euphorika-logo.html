@@ -23,15 +23,15 @@
         transition: transform 0.1s ease-in-out
       }
 
-      svg:hover .rect-top,
-      svg:hover .rect-bottom,
-      svg[animated] .rect-top,
-      svg[animated] .rect-bottom {
+      :host([hover]) svg:hover .rect-top,
+      :host([hover]) svg:hover .rect-bottom,
+      :host([hover]) svg[animated] .rect-top,
+      :host([hover]) svg[animated] .rect-bottom {
         transform: translateX(-4px);
       }
 
-      svg:hover .rect-middle,
-      svg[animated] .rect-middle {
+      :host([hover]) svg:hover .rect-middle,
+      :host([hover]) svg[animated] .rect-middle {
         transform: translateX(4px);
       }
     </style>
