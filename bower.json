@@ -1,6 +1,6 @@
 {
   "name": "euphorika-logo",
-  "version": "0.9.3",
+  "version": "1.0.0",
   "description": "Animated SVG Logo euphorika communications UG",
   "main": "euphorika-logo.html",
   "dependencies": {
