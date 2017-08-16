@@ -5,8 +5,6 @@
     <style>
       :host {
         display: block;
-        width: 100px;
-        height: 100px;
       }
 
       svg {
@@ -23,27 +21,28 @@
         transition: transform 0.1s ease-in-out
       }
 
-      svg:hover .rect-top,
-      svg:hover .rect-bottom,
+      :host([hover]) svg:hover .rect-top,
+      :host([hover]) svg:hover .rect-bottom,
       svg[animated] .rect-top,
       svg[animated] .rect-bottom {
         transform: translateX(-4px);
       }
 
-      svg:hover .rect-middle,
+      :host([hover]) svg:hover .rect-middle,
       svg[animated] .rect-middle {
         transform: translateX(4px);
       }
     </style>
-
-    <svg id="euphorikaLogo" width="100%" height="100%"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-      <g>
-        <title>[[title]]</title>
-      	<rect class="rect rect-top" x="31" y="26" width="46" height="10" />
-      	<rect class="rect rect-middle" x="23" y="45" width="46" height="10" />
-      	<rect class="rect rect-bottom" x="31" y="64" width="46" height="10" />
-      </g>
-    </svg>
+    <div id="euphorikaLogoContainer" style$="width:[[size]]; height:[[size]];">
+      <svg id="euphorikaLogo" width="100%" height="100%"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+        <g>
+          <title>[[title]]</title>
+        	<rect class="rect rect-top" x="31" y="26" width="46" height="10" />
+        	<rect class="rect rect-middle" x="23" y="45" width="46" height="10" />
+        	<rect class="rect rect-bottom" x="31" y="64" width="46" height="10" />
+        </g>
+      </svg>
+    </div>
   </template>
 
   <script>
@@ -63,8 +62,27 @@
           title: {
             type: String,
             value: 'euphorika communications logo'
+          },
+
+          size: {
+            type: String,
+            value: '100px'
+          },
+
+          delay: {
+            type: String
+          },
+
+          duration: {
+            type: String
           }
         };
+      }
+
+      static get observers() {
+        return [
+          'durationChanged(delay, duration)'
+        ]
       }
 
       constructor() {
@@ -77,6 +95,42 @@
 
       animate() {
         this.$.euphorikaLogo.setAttribute('animated', null);
+      }
+
+      durationChanged(delay, duration) {
+        let delayMs = this._parseAnimationParam(delay);
+        let durationMs = this._parseAnimationParam(duration)
+
+        this._autoAnimate(delayMs, durationMs);
+      }
+
+      _autoAnimate(delay, duration) {
+        setTimeout(() => {
+          this.animate();
+
+          setTimeout(() => {
+            let newDuration = this._parseAnimationParam(this.duration);
+            this.init();
+            this._autoAnimate(newDuration, newDuration);
+          }, duration);
+        }, delay);
+      }
+
+      _parseAnimationParam(param) {
+        let splitted = param.split('-');
+        let min;
+        let max;
+
+        if (splitted.length === 1) {
+          return splitted[0] * 1000;
+        }
+
+        min = Math.min(splitted[0], splitted[1]);
+        max = Math.max(splitted[0], splitted[1]);
+
+        let rand = (Math.floor(Math.random() * (max - min + 1)) + min) * 1000;
+
+        return rand;
       }
 
     }

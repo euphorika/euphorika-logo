@@ -17,7 +17,7 @@ Animated SVG Logo euphorika communications UG
 ```
 -->
 ```html
-<euphorika-logo></euphorika-logo>
+<euphorika-logo hover></euphorika-logo>
 ```
 
 ## Install the Polymer-CLI
