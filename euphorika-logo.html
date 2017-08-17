@@ -9,9 +9,16 @@
 
       svg {
         background: #ef2d56;
+
       }
 
-      :host([monochrome]) svg {
+      :host([svg-block]) svg,
+      :host(.svg-block) svg {
+        display: block;
+      }
+
+      :host([monochrome]) svg,
+      :host(.monochrome) svg {
         background: #000;
       }
 
